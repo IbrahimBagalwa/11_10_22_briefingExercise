@@ -6,14 +6,12 @@
  * @returns {number}
  */
 export default function penaltyPoints(password = "") {
-  // The following line ensures, that password is always a string, like the number 128 -> string "128"
   if (typeof password !== "string") password = String(password);
-
-  // * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  // * * * INSERT YOUR CODE HERE * * * * * * * * * * * * * *
-  // * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  //
   if (password.length < 10) return 0;
+  /*
+  This regular expression is used to find consecutive occurrences of the same alphanumeric character. 
+  It captures the character and then checks if it occurs two or more times consecutively, or if it occurs just once.
+  */
   const regex = /([a-zA-Z0-9])(\1{2,}|\1)/g;
   const matches = password.match(regex);
   let points = 0;
