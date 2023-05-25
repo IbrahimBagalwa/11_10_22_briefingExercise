@@ -14,16 +14,15 @@ function solution(number) {
     { value: 4, symbol: "IV" },
     { value: 1, symbol: "I" },
   ];
-  let result = "";
+  let roman = "";
   let i = 0;
   while (symbols.length > i) {
     const { value, symbol } = symbols[i];
     while (number >= value) {
-      result += symbol;
+      roman += symbol;
       number -= value;
     }
     i++;
   }
-  return result;
+  return roman;
 }
-console.log(solution(4));
