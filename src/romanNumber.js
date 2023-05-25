@@ -10,7 +10,7 @@ function solution(roman) {
   };
   let count = 0;
   let index = roman[0];
-  roman.split("").reduce((a, b) => {
+  roman.split("").reduce((_, b) => {
     let j = symbals[index] || 0;
     let k = symbals[b] || 0;
     count += j < k ? -j : j;
