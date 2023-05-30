@@ -15,14 +15,15 @@ function solution(number) {
     { value: 1, symbol: "I" },
   ];
   let roman = "";
-  let i = 0;
-  while (symbols.length > i) {
+
+  for (let i = 0; i < symbols.length; i++) {
     const { value, symbol } = symbols[i];
     while (number >= value) {
       roman += symbol;
       number -= value;
     }
-    i++;
   }
   return roman;
 }
+
+console.log(solution(98));
