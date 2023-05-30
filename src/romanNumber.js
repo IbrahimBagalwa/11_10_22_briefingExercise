@@ -1,5 +1,5 @@
 function solution(roman) {
-  const symbals = {
+  const symbols = {
     I: 1,
     V: 5,
     X: 10,
@@ -10,12 +10,14 @@ function solution(roman) {
   };
   let count = 0;
   let index = roman[0];
-  roman.split("").reduce((_, b) => {
-    let j = symbals[index] || 0;
-    let k = symbals[b] || 0;
-    count += j < k ? -j : j;
-    index = b;
+  roman.split("").reduce((_, acc) => {
+    let firstIndexInput = symbols[index] || 0; // first value of the input that is provide
+    let lastIndexInput = symbols[acc] || 0;
+
+    count +=
+      firstIndexInput < lastIndexInput ? -firstIndexInput : firstIndexInput;
+    index = acc;
   });
 
-  return count + symbals[roman[roman.length - 1]];
+  return count + symbols[roman[roman.length - 1]];
 }

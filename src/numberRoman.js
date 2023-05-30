@@ -25,5 +25,3 @@ function solution(number) {
   }
   return roman;
 }
-
-console.log(solution(98));
